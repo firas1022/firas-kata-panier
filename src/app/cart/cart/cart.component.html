@@ -1,0 +1,40 @@
+<div class="cart-header">
+  <a class="btn btn-primary btn-sm" routerLink="/products">Afficher la liste des produits</a>
+
+  <div *ngIf="cartItems.length > 0" class="container-fluid">
+    <h3>Produits sélectionnés</h3>
+    <ul>
+      <li *ngFor="let item of cartItems">
+        <div class="row">
+          <div class="col-sm-12 col-md-2 col-lg-2">
+            {{item.product.productName}}
+          </div>
+          <div class="col-sm-12 col-md-1 col-lg-1">
+            Qte: {{item.quantity}}
+          </div>
+          <div class="col-sm-12 col-md-2 col-lg-2">
+            taxes: {{taxService.getTax(item)}}
+          </div>
+          <div class="col-sm-12 col-md-3 col-lg-3">
+            Prix unitaire HT: {{item.product.price}}
+          </div>
+          <div class="col-sm-12 col-md-3 col-lg-3">
+            Prix unitaire TTC: {{item.priceWithTax}}
+          </div>
+          <div class="col-sm-12 col-md-1 col-lg-1">
+            <button mat-raised-button (click)="removeFromCart(item)"> Supprimer</button>
+          </div>
+        </div>
+        <hr/>
+      </li>
+    </ul>
+    <p>
+      TOTAL Taxes: {{taxService.getTotalTax(cartItems)}}
+      <br/>
+      TOTAL TTC: {{taxService.getTotalTTC(cartItems)}}
+    </p>
+  </div>
+
+  <!-- Affiche un message lorsque le panier est vide -->
+  <div class="cart-empty" *ngIf="cartItems.length === 0">Votre panier est vide.</div>
+</div>

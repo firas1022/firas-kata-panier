@@ -1,0 +1,18 @@
+<div class="container">
+  <mat-form-field class="category-filter">
+    <mat-label>Catégorie</mat-label>
+    <mat-select [(ngModel)]="selectedCategory" (selectionChange)="onChangeCategoryFilter()">
+      <mat-option value="">Toutes</mat-option>
+      <mat-option *ngFor="let category of categories" [value]="category">{{ category }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="cart-container">
+    <i class="material-icons">shopping_cart</i>
+    <a routerLink="/cart" class="cart-link">Panier <span class="cart-items">{{cartItems.length}}</span></a>
+  </div>
+  <div class="row">
+    <div *ngFor="let product of filteredList" class="col-sm-12 col-md-4 col-lg-4">
+      <app-product [product]="product"></app-product>
+    </div>
+  </div>
+</div>

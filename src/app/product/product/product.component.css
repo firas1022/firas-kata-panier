@@ -1,0 +1,37 @@
+.product-actions {
+  display: flex;
+  align-items: center;
+}
+
+.product-actions .form-group {
+  margin-bottom: 0;
+}
+
+.product-actions label {
+  font-weight: bold;
+}
+
+.product-actions .form-control {
+  border-radius: 20px;
+  border: 2px solid #ccc;
+  padding: 6px 12px;
+  transition: border-color 0.3s ease-in-out;
+}
+
+.product-actions .form-control:focus {
+  outline: none;
+  border-color: #4b8bff;
+  box-shadow: 0 0 5px rgba(75, 139, 255, 0.5);
+}
+
+.product-actions .text-danger {
+  margin-top: 5px;
+  font-size: 12px;
+}
+
+.product-actions button {
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 6px 20px;
+}
